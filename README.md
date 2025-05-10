@@ -1,1 +1,5 @@
-Hello other World
+---
+layout: default
+---
+
+Have a nice README!

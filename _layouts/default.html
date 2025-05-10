@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div>
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      / {{ site.headline }}
+    </div>
+    <div>
+      <nav>
+        {% for path in site.header_pages %}
+          {% assign p = site.pages | where: "path", path | first %}
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        {% endfor %}
+        <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+          <i id="theme-icon" class="fa-solid fa-sun"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <aside class="bio">
+    <img src="{{ site.logo }}" alt="Portrait of Steven" class="profile-pic" />
+    <h1>{{ site.author }}</h1>
+    <p>{{ site.description }}</p>
+    <ul>
+      <li><i class="fas fa-envelope"></i> <a href="mailto:{{ site.email }}">Email</a></li>
+      <li><i class="fa-brands fa-github"></i> <a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+      <li><i class="fa-brands fa-orcid"></i> <a href="https://orcid.org/{{ site.orcid }}">ORCID</a></li>
+      <li><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 {{ site.author }}</p>
+  </footer>
+
+  <script>
+    const userPref = localStorage.getItem("theme");
+    const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+    setTheme(userPref || systemPref);
+
+    function getTheme() {
+      return document.documentElement.getAttribute("data-theme");
+    }
+
+    function setTheme(newTheme) {
+      const icon = document.getElementById("theme-icon");
+
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      icon.className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+    }
+
+    function toggleTheme() {
+      setTheme(getTheme() === "dark" ? "light" : "dark");
+    }
+  </script>
+</body>
+</html>

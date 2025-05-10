@@ -1,0 +1,26 @@
+title: Steven Roberts
+headline: Software Engineer
+author: Steven Roberts
+email: steven_aaron@msn.com
+description: > 
+  Developer. Engineer. Scholar. Creator of strange things.
+
+# social links
+# twitter_username:
+github_username: 27Steven34
+orcid: 0000-0002-4220-0567
+# rss:
+linkedin_username: steven-roberts-50299a185
+
+logo: "/assets/images/logo.png"
+
+date_format: "%Y-%m-%d"
+
+header_pages:
+ - index.md
+ - about.md
+ - projects.md
+ - resume.md
+
+plugins:
+ - jekyll-seo-tag
