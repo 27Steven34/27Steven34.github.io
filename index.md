@@ -11,16 +11,18 @@ I'm the kind of developer who cares about the **why** as much as the **how**. Cu
 
 ---
 
-### Projects  
-A few things I've built or helped build:
+## Projects  
+A few things I've built, have helped build, or am currently building:
 
-- List things here
+- Vue SPA for designing D&D spell cards
+- M&B 2 Bannerlord mods (not public, but maybe later)
+- This site
 
 → [See all projects »](/projects)
 
 ---
 
-### About Me
+## About Me
 
 I'm a builder, thinker, and experienced keypresser.
 
@@ -30,7 +32,7 @@ When I'm not shipping code, I'm probably attempting to ship code, fiddling with 
 
 ---
 
-### Get in Touch
+## Get in Touch
 Or don't. I'm not a cop.
 - GitHub: [@{{ site.github_username }}](https://github.com/{{ site.github_username }})
 - Email: [{{ site.email }}](mailto:{{ site.email }})
