@@ -1,0 +1,54 @@
+<header>
+  <div>
+    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    / {{ site.headline }}
+  </div>
+  <div id="nav-bar">
+    <nav id="nav-menu">
+      {% for path in site.header_pages %}
+        {% assign p = site.pages | where: "path", path | first %}
+        <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      {% endfor %}
+    </nav>
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleNav()">
+      <i id="nav-toggle-icon" class="fa-solid fa-bars"></i>
+    </button>
+    <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
+      <i id="theme-icon" class="fa-solid fa-sun"></i>
+    </button>
+  </div>
+
+  <script name="dark-light-theme">
+    const userPref = localStorage.getItem("theme");
+    const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+    setTheme(userPref || systemPref);
+
+    function getTheme() {
+      return document.documentElement.getAttribute("data-theme");
+    }
+
+    function setTheme(newTheme) {
+      const icon = document.getElementById("theme-icon");
+
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      icon.className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+    }
+
+    function toggleTheme() {
+      setTheme(getTheme() === "dark" ? "light" : "dark");
+    }
+  </script>
+
+  <script name="toggle-mobile-nav">
+    function toggleNav() {
+      const toggle = document.getElementById('nav-toggle');
+      const newExpanded = !(toggle.getAttribute('aria-expanded') === 'true');
+      toggle.setAttribute('aria-expanded', newExpanded);
+      document.getElementById('nav-menu').classList.toggle('open');
+      document.getElementById('nav-toggle-icon').className = newExpanded ? "fa-solid fa-xmark" : "fa-solid fa-bars"
+    }
+  </script>
+  {% seo %}
+</header>
