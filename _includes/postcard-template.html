@@ -1,0 +1,17 @@
+{% raw %}
+<template id="post-card-template">
+  <li class="post-card">
+    <a href="{{ url }}">
+      <div class="post-heading">
+        <div>
+          <h2>{{ title }}</h2>
+          <p class="post-meta">{{ date }}</p>
+        </div>
+        <img src="{{ thumbnail }}" alt="{{ title }} thumbnail" class="post-thumb" />
+      </div>
+      <p class="post-excerpt">{{ excerpt }}</p>
+      <ul class="tag-list" style="display: none;"></ul>
+    </a>
+  </li>
+</template>
+{% endraw %}

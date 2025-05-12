@@ -1,12 +1,18 @@
 :root {
   --background-color: #fdfdfd;
   --text-color: #222222;
-  --primary-color: #0088aa;
-  --secondary-color: #666666;
+  --background-color-2: #dbdbdb;
+  --text-color-2: #000000;
+  --muted-text-color: #666666;
+
+  // Same in both themes
+  --accent-color: #0088aa;
 }
 
 [data-theme="dark"] {
   --background-color: #020202;
   --text-color: #dddddd;
-  --secondary-color: #aaaaaa;
+  --background-color-2: #242424;
+  --text-color-2: #ffffff;
+  --muted-text-color: #aaaaaa;
 }

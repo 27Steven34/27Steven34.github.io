@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  {% include head.html %}
+<body class="{{ page.layout }}">
+  {% include header.html %}
+
+  <main>
+    <a href="/posts/" class="back-button">&larr; Back to Posts</a>
+    {{ content }}
+    <section class="related-posts">
+      <h2>More Posts</h2>
+      <div class="related-posts-grid post-list"></div>
+    </section>
+  </main>
+  {% include footer.html %}
+  <script id="all-posts-data" type="application/json">
+    [
+      {% for post in site.posts %}
+        {
+          "title": {{ post.title | jsonify }},
+          "tags": {{ post.tags | jsonify }},
+          "url": {{ post.url | jsonify }},
+          "date": {{ post.date | date: "%B %d, %Y" | jsonify }},
+          "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncate: 500 | jsonify }},
+          "thumbnail": {{ post.thumbnail | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  </script>
+  {% include postcard-template.html %}
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

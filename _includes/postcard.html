@@ -1,0 +1,24 @@
+<!-- This can be used for statically-generated cards. For dynamically-generated cards, use createCard in main.js. -->
+<li class="post-card">
+  <a href="{{ url }}">
+    <div class="post-heading">
+      <div>
+        <h2>{{ title }}</h2>
+        <p class="post-meta">{{ date }}</p>
+      </div>
+      {% if thumbnail %}
+        <img src="{{ thumbnail }}" alt="{{ title }} thumbnail" class="post-thumb" />
+      {% endif %}
+    </div>
+    {% if excerpt and excerpt != '' %}
+      <p class="post-excerpt">{{ excerpt }}</p>
+    {% endif %}
+    {% if post.tags %}
+      <ul class="tag-list">
+        {% for tag in post.tags %}
+          <li class="tag">{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </a>
+</li>
