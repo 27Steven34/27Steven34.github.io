@@ -5,7 +5,8 @@ permalink: /doodles/
 ---
 
 <ul class="post-list">
-  {% for doodle in site.doodles %}
+  {% assign sortedDoodles = site.doodles | reverse %}
+  {% for doodle in sortedDoodles %}
     {% assign url = doodle.url %}
     {% assign title = doodle.title %}
     {% assign date = doodle.date | date: "%B %d, %Y" %}
