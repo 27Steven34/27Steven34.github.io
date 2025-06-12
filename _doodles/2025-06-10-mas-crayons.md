@@ -1,7 +1,7 @@
 ---
 layout: doodle
 title: Boxes of boxes of crayons
-date: 2025-06-05
+date: 2025-06-10
 ---
 
 ## Quick recapitation
@@ -43,14 +43,14 @@ Finally, a subset of crayons $B$ can be removed from a multiset $A$, where $B \s
  - $T_C = T_A - T_B$
  - $\vec{s_C} = \vec{s_A} - \vec{s_B}$
 
- We showed that any multiset of crayons resulting in a given $T$ and $\vec{s}$ is equivalent to any other multiset resulting in the same values of $T$ and $\vec{s}$, even if the two sets were known to be built using different crayon compositions.
+We showed that any multiset of crayons resulting in a given $T$ and $\vec{s}$ is equivalent to any other multiset resulting in the same values of $T$ and $\vec{s}$, even if the two sets were known to be built using different crayon compositions.
 
- ## The tip of the problem
- This forms the foundation for what will actually be a grid of boxes of such magic crayons. Rather than adding and removing crayons from a box at will, neighboring boxes in the grid will spill their contents into each other in a sort of osmotic exchange. We will start with a simple version with just two boxes, then build up from there to a grid of arbitray size.
+## The tip of the problem
+This forms the foundation for what will actually be a grid of boxes of such magic crayons. Rather than adding and removing crayons from a box at will, neighboring boxes in the grid will spill their contents into each other in a sort of osmotic exchange. We will start with a simple version with just two boxes, then build up from there to a grid of arbitray size.
 
- First, let's lay a few ground rules that will bind some sense to the problem:
-  - Total crayon count is conserved in a closed system.
-  - The net color vector is conserved in a closed system.
+First, let's lay a few ground rules that will bind some sense to the problem:
+ - Total crayon count is conserved in a closed system.
+ - The net color vector is conserved in a closed system.
 
 We'll also see that neighboring boxes tend towards a same-state equilibrium. This would be caused by a relationship between the change in state and the difference in state. For example, a relationship of one of the forms:
 
